@@ -137,7 +137,6 @@ convert_page = """
 const drop = document.getElementById('drop');
 const input = document.getElementById('fileinput');
 const info = document.getElementById('fileinfo');
-drop.addEventListener('click', ()=> input.click());
 input.addEventListener('change', ()=>{ info.innerText = input.files[0]?.name || 'No file selected'; });
 ['dragenter','dragover'].forEach(e=>drop.addEventListener(e,ev=>{ev.preventDefault();drop.classList.add('dragover')}));
 ['dragleave','drop'].forEach(e=>drop.addEventListener(e,ev=>{ev.preventDefault();drop.classList.remove('dragover')}));
