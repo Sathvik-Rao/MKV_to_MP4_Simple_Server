@@ -1,0 +1,62 @@
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage
+.pytest_cache/
+.cache
+.coverage
+htmlcov/
+.tox/
+
+# Jupyter
+.ipynb_checkpoints
+
+# Runtime data
+uploads/
+outputs/
+
+# Environment files
+.env
+# .env.*
+
+# IDEs
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Databases
+*.sqlite3
+
+# Docker overrides and local compose files
+docker-compose.override.yml
+docker-compose.*.yml
+
+# Misc
+coverage.xml
+*.cover
+*.pid
+*.seed

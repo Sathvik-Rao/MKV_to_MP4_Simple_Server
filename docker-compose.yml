@@ -1,0 +1,26 @@
+
+services:
+  app:
+    build: .
+    image: mkv_to_mp4_simple_server:latest
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - USERNAME_MKV2MP4=${USERNAME_MKV2MP4:-admin}
+      - PASSWORD_MKV2MP4=${PASSWORD_MKV2MP4:-password123}
+      - GUNICORN_WORKERS_MKV2MP4=${GUNICORN_WORKERS_MKV2MP4:-1}
+      - PORT_MKV2MP4=${PORT_MKV2MP4:-5000}
+      - GUNICORN_TIMEOUT_MKV2MP4=${GUNICORN_TIMEOUT_MKV2MP4:-3600}
+      - GUNICORN_WORKER_CLASS_MKV2MP4=${GUNICORN_WORKER_CLASS_MKV2MP4:-gthread}
+      - GUNICORN_THREADS_MKV2MP4=${GUNICORN_THREADS_MKV2MP4:-4}
+      - CONCURRENT_CONVERSIONS_MKV2MP4=${CONCURRENT_CONVERSIONS_MKV2MP4:-1}
+    volumes:
+      - ./uploads:/app/uploads
+      - ./outputs:/app/outputs
+    command: sh -c "gunicorn -w ${GUNICORN_WORKERS_MKV2MP4:-1} -b 0.0.0.0:${PORT_MKV2MP4:-5000} --timeout ${GUNICORN_TIMEOUT_MKV2MP4:-3600} --worker-class ${GUNICORN_WORKER_CLASS_MKV2MP4:-gthread} --threads ${GUNICORN_THREADS_MKV2MP4:-4} app:app"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:5000/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
