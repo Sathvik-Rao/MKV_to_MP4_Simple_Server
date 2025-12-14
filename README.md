@@ -2,6 +2,12 @@
 
 This small Flask app accepts MKV uploads and remuxes/converts them to MP4 using `ffmpeg`.
 
+<div align="center">
+    <img src="https://github.com/user-attachments/assets/c77d24fb-b5e8-4c8e-9f86-9753a23bfc99" alt="login" width="360" height="300" />
+    <img src="https://github.com/user-attachments/assets/16fa883a-1020-4e66-90e2-89bf8481b911" alt="conversion mode" width="360" height="300" />
+    <img src="https://github.com/user-attachments/assets/1f8e4250-2ccd-4600-aa16-1688eb8da309" alt="conversion" width="360" height="300" />
+</div>
+
 **Configuration**
 
 Copy `.env.example` to `.env` and set any values you need (the `.env` file is ignored by git).
